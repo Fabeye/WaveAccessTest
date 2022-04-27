@@ -1,0 +1,23 @@
+﻿@model ActorsViewModel
+
+
+    <h1>@ViewBag.Title</h1>
+    <h3>@Model.sortedBy</h3>
+    <div class="row mt-5 mb-2">
+    <p>
+        <a href="/Actors/Index/mostPopular">   -Популярные-   </a>
+        <a href="/Actors/Index/byHeight">   -Самые высокие -   </a>
+    </p>
+ @{
+    foreach (Actor actor in Model.allActors)
+    {
+        <div class = "col-lg-3"> 
+            <img class="img-thumbnail" src="@actor.img", width=250 height = 450 alt="@actor.actorName" />
+            <h2>@actor.actorName</h2>
+            <p>Рейтинг։ @actor.actorRating</p>
+            <p><a class="btn btn-warning" asp-controller="Actors", asp-action="actorInfo" asp-route-id="@actor.id">Больше информации</a></p>
+            @*<p><a class="btn btn-warning" href="/Movies/Info?id="@movie.id" ">Больше информации</a></p>*@
+        </div>  
+    }
+}
+</div>

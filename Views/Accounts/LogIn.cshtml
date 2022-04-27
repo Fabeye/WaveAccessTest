@@ -1,0 +1,19 @@
+﻿@model Account
+
+ <form asp-action="LogIn" method="post" class="form-horizontal">
+     <div class="form-group">
+            <label asp-for="login"></label>
+            <div class="col-md-5">
+                <input asp-for="login" class="form-control" />
+                <span asp-validation-for="login" class="text-danger"></span> 
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="password"></label> 
+            <div class="col-md-5">
+                <input asp-for="password" class="form-control" /> 
+                <span asp-validation-for="password" class="text-danger"></span> 
+            </div>
+        </div>
+        <input class = "btn btn-success mt-3" type="submit" value="Войти" />
+ </form>

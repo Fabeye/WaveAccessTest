@@ -1,0 +1,27 @@
+﻿@model ActorViewModel
+
+<h1>@Model.actor.actorName</h1> 
+<img class="img-thumbnail" src="@Model.actor.img" alt="@Model.actor.actorName" />
+<p>@Model.actor.actorInfo</p>
+<p>Рост։ @Model.actor.height</p>
+<p>Рейтинг։ @Model.actor.actorRating</p>
+<p><a asp-controller="Actors" asp-action="addRating" asp-route-id = "@Model.actor.id">-поднять рейтинг-</a></p>
+
+
+<h3>Играл в фильмах</h3>
+<div class="row mt-5 mb-2">
+@{
+    foreach (var movie in Model.movies)
+    {
+        <div class = "col-lg-3"> 
+            <img class="img-thumbnail" src="@movie.img", width=100 height =150 alt="@movie.movieName" />
+            <h3>@movie.movieName</h3>
+            <p>Рейтинг։ @movie.movieRating</p>
+
+            <p><a class="btn btn-warning" asp-controller="Movies", asp-action="Info" asp-route-id="@movie.id">Больше информации</a></p>
+        </div> 
+    }
+}
+</div>
+            
+

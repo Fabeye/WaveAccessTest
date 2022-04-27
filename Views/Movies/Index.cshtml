@@ -1,0 +1,24 @@
+﻿@model MoviesListViewModel
+
+
+    <h1>@ViewBag.Title</h1>
+    <h3>@Model.sortedBy</h3>
+    <div class="row mt-5 mb-2">
+    <p>
+        <a href="/Movies/Index/mostPopular">   -Популярные-   </a>
+        <a href="/Movies/Index/byAlphabet">   -По алфавиту-   </a>
+        <a href="/Movies/Index/byPremiereDate">   -Новинки-   </a>
+    </p>
+ @{
+    foreach (Movie movie in Model.allMovies)
+    {
+        <div class = "col-lg-3"> 
+            <img class="img-thumbnail" src="@movie.img", width=250 height = 450 alt="@movie.movieName" />
+            <h2>@movie.movieName</h2>
+            <p>Рейтинг։ @movie.movieRating</p>
+            <p><a class="btn btn-warning" asp-controller="Movies", asp-action="Info" asp-route-id="@movie.id">Больше информации</a></p>
+            @*<p><a class="btn btn-warning" href="/Movies/Info?id="@movie.id" ">Больше информации</a></p>*@
+        </div>  
+    }
+}
+</div>
